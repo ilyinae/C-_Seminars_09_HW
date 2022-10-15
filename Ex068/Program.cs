@@ -4,19 +4,11 @@
 
 double AkkermanFunction(double i, double j)
 {
-    if (i == 0)
-        return j + 1;
-    else
-        if (j == 0)
-        return AkkermanFunction(i - 1, 1);
-    else
-    {
-        if (i > 0 && j > 0)
-            return AkkermanFunction(i - 1, AkkermanFunction(i, j - 1));
-        else
-            return double.MinValue;
-    }
+    if (i == 0)  return j + 1;
+    if (j == 0)  return AkkermanFunction(i - 1, 1);
+    return AkkermanFunction(i - 1, AkkermanFunction(i, j - 1));
 }
+
 Console.Clear();
 Console.Write("Введите число M: ");
 int m = Convert.ToInt32(Console.ReadLine());
